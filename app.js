@@ -1,11 +1,19 @@
+require('dotenv').config();
 const express = require("express");
 const hbs = require("hbs");
-const morgan = require("morgan");
+
 // const indexRouter = require('./routers/indexRouter')  
+const session = require('express-session');
+const morgan = require('morgan');
+
+const FileStore = require('session-file-store')(session);
 const path = require('path')
 const watchRouter = require('./routers/watchRouter')
 const adminAddRouter = require('./routers/adminAddRouter')
 const adminRegRouter = require('./routers/adminRegRouter');
+
+
+
 
 const app = express();
 const PORT = 3000;
@@ -20,6 +28,13 @@ app.use(express.urlencoded({
 }));
 app.use(express.json());
 app.use(morgan('dev'));
+app.use(session({
+  name: 'sID',
+  store: new FileStore({}),
+  secret: process.env.SESSION,
+  resave: true,
+  saveUninitialized: false,
+}));
 app.use('/watch', watchRouter)
 app.use('/adminAdd', adminAddRouter);
 app.use('/adminReg', adminRegRouter);
