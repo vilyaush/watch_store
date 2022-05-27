@@ -56,7 +56,8 @@ app.get('/', (req, res) => {
 
 app.get('/orders', async (req, res) => {
  const orders = await User.findAll();
-  res.send(orders);
+//  res.send(orders);
+  res.render('orderdetail', {orders})
 })
 
 app.listen(PORT, () => {
