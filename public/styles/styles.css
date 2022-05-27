@@ -196,21 +196,14 @@ display: flex;
   /* border-radius: 40px; */
 }
 
+.zakaz1 {
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 350px 10px 30px -230px;
 
-
-
-
-
-
-
-
-
-
-/* .container {
-  background-image: url('https://oir.mobi/uploads/posts/2021-03/thumbs/1616576381_29-p-fon-dlya-chasov-39.jpg');
-  height: 100%;
-  background-repeat:no-repeat;
-} */
+  
+}
 
 
 @media (min-width: 530px) {
