@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const hbs = require("hbs");
+const { User } = require('./db/models');
 
 // const indexRouter = require('./routers/indexRouter')  
 const session = require('express-session');
@@ -12,7 +13,7 @@ const watchRouter = require('./routers/watchRouter')
 const adminAddRouter = require('./routers/adminAddRouter')
 const adminRegRouter = require('./routers/adminRegRouter');
 
-
+const {checkSession} = require('./middleWares/middleWare')
 
 
 const app = express();
@@ -35,6 +36,8 @@ app.use(session({
   resave: true,
   saveUninitialized: false,
 }));
+
+app.use(checkSession);
 app.use('/watch', watchRouter)
 app.use('/adminAdd', adminAddRouter);
 app.use('/adminReg', adminRegRouter);
@@ -43,6 +46,10 @@ app.get('/', (req, res) => {
   res.render('index');
 })
 
+app.get('/orders', async (req, res) => {
+ const orders = await User.findAll();
+  res.send(orders);
+})
 
 app.listen(PORT, () => {
   console.log('server start on', PORT);

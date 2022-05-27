@@ -36,25 +36,7 @@ router.route('/')
 });
 
 
-router.route('/')
-.get( (req, res) => {
-  res.render('adminReg');
-})
-.post(async (req, res) => {
-  const { email, pass } = req.body;
-  if (email && pass) {
-    const currentUser = await Admin.findOne({ where: { email } });
-    if (currentUser && await bcrypt.compare(pass, currentUser.pass)) {
-      req.session.userid = currentUser.id;
-      req.session.userName = currentUser.name;
-      req.session.userEmail = currentUser.email;
-      
-      return res.redirect('/');
-    }
-    return res.redirect('/');
-  }
-  return res.redirect('/registration');
-});
+
 
 module.exports = router;
 

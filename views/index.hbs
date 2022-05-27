@@ -2,9 +2,15 @@
           <li class="pipe-separate t-light-green left"><a href="/adminAdd" style="">Admin's sign
               up</a></li>
           <li class="pipe-separate t-light-green left"><a href="/adminReg">Admin</a></li>
-        
+      {{#if user}}
+        <li class="nav-item">
+          <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">
+              Hello, {{user.name}}
+          </a>
+        </li>
+        {{/if}}
         </ul>
-<div class="container">
+
 <div class="portfolio-wrap">
 <div class="portfolio-item">
 <div class="portfolio-item-wrap">
@@ -24,3 +30,13 @@
 </div>
 </div>
 </div>
+
+
+<div >
+ <hr>
+
+
+<a href="/orders">Заказы</a>
+
+</div>
+
