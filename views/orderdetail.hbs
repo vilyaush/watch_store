@@ -1,6 +1,35 @@
+{{!-- <div class="tab">
+<table>
+  <tr><td><h3>Name</h3></td><td><h3>EMAIL</h3></td><td><h3>Phone</h3></td><td><img><h3>Image</h3></img></td></tr>
 {{#each orders}}
-<h1>{{this.name}}</h1>
-<h1>{{this.email}}</h1>
-<h1>{{this.phone}}</h1>
-<img src="{{this.img}}"></img>
+<tr><td><h3>{{this.name}}</h3></td><td><h3>{{this.email}}</h3></td><td><h3>{{this.phone}}</h3></td><td><img width="200" height="150" src="{{this.img}}"></img></td></tr>
+
 {{/each}}
+</table>
+</div> --}}
+
+
+<div class="tab7">
+<table class="table">
+  <thead>
+    
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Image</th>
+    </tr>
+   
+  </thead>
+  <tbody>
+    {{#each orders}}
+    <tr>
+      <th scope="row">1</th>
+      <td><h2>{{this.name}}</h2></td>
+      <td><h2>{{this.email}}</h2></td>
+      <td><h2>{{this.phone}}</h2></td>
+      <td><img width="200" height="150" src="{{this.img}}"></img></td>
+    </tr>
+     {{/each}}
+    </div>
