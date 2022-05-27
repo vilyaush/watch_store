@@ -3,7 +3,6 @@ const express = require("express");
 const hbs = require("hbs");
 const { User } = require('./db/models');
 
-// const indexRouter = require('./routers/indexRouter')  
 const session = require('express-session');
 const morgan = require('morgan');
 
@@ -44,7 +43,11 @@ app.use(session({
 }));
 
 app.use(checkSession);
-app.use('/watch', watchRouter)
+
+// app.get('/',(req, res) => {
+//     req.session.destroy();
+//     res.clearCookie('sID').redirect('/');
+//   });app.use('/watch', watchRouter)
 app.use('/adminAdd', adminAddRouter);
 app.use('/adminReg', adminRegRouter);
 app.use('/message', messageRouter);
