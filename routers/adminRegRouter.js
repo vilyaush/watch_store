@@ -8,6 +8,12 @@ router.get('/', (req, res) => {
   res.render('adminReg');
 });
 
+router.route('/signOut')
+  .get((req, res) => {
+    req.session.destroy();
+    res.clearCookie('sID').redirect('/');
+  });
+
 router.post('/',async (req, res) => {
   const { email, pass } = req.body;
   if (email && pass) {

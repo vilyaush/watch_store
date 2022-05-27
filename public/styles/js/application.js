@@ -12,7 +12,7 @@ zakaz.addEventListener('submit', async (event) => {
     body: JSON.stringify(zakazData),
   });
   if (response.ok) {
-    window.location = '/';
+    window.location = '/message';
   }
 })
 
