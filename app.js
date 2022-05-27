@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require("express");
 const hbs = require("hbs");
+const { User } = require('./db/models');
 
 // const indexRouter = require('./routers/indexRouter')  
 const session = require('express-session');
@@ -11,6 +12,10 @@ const path = require('path')
 const watchRouter = require('./routers/watchRouter')
 const adminAddRouter = require('./routers/adminAddRouter')
 const adminRegRouter = require('./routers/adminRegRouter');
+
+
+const {checkSession} = require('./middleWares/middleWare')
+
 const slaydRouter = require('./routers/slaydRouter')
 const messageRouter = require('./routers/messageRouter')
 
@@ -22,7 +27,7 @@ const PORT = 3000;
 
 app.set('view engine', 'hbs');
 hbs.registerPartials(__dirname + '/views/partials');
-app.use(express.static(__dirname + '/public/'));
+app.use(express.static(path.join(__dirname,'public')));
 
 
 app.use(express.urlencoded({
@@ -37,6 +42,8 @@ app.use(session({
   resave: true,
   saveUninitialized: false,
 }));
+
+app.use(checkSession);
 app.use('/watch', watchRouter)
 app.use('/adminAdd', adminAddRouter);
 app.use('/adminReg', adminRegRouter);
@@ -47,6 +54,10 @@ app.get('/', (req, res) => {
   res.render('index');
 })
 
+app.get('/orders', async (req, res) => {
+ const orders = await User.findAll();
+  res.send(orders);
+})
 
 app.listen(PORT, () => {
   console.log('server start on', PORT);
