@@ -1,56 +1,56 @@
-
 <div class="container">
-<div class="portfolio-wraps">
-<div class="portfolio-item">
-<div class="portfolio-item-wraps">
-<a href="">
-<img src="https://hotwalls.ru/thumbnails/lg/temnyy_fon_v_melkuyu_tochku.jpg">
-<div class="portfolio-item-inner">
-<div class="portfolio-heading">
-</div>
-<ul class="no-bullets no-margin no-padding right">
+  <div class="portfolio-wraps">
+    <div class="portfolio-item">
+      <div class="portfolio-item-wraps">
+        <a href="">
+          <img src="https://hotwalls.ru/thumbnails/lg/temnyy_fon_v_melkuyu_tochku.jpg">
+          <div class="portfolio-item-inner">
+            <div class="portfolio-heading">
+            </div>
+            <ul class="no-bullets no-margin no-padding right">
 
-<li><a href="/adminAdd">Admin's sign up</a></li>
-<li><a href="/adminReg">Admin</a></li>
-</ul>
-</div>
-</a>
-</div>
-</div>
-</div>
- {{#if user}}
-        <li class="nav-item">
-          <a class="nav-link " href="#"  tabindex="-1" aria-disabled="true">
-              Hello, {{user.name}}
+              <li><a href="/adminAdd">Admin's sign up</a></li>
+              <li><a href="/adminReg">Admin</a></li>
+            </ul>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+  {{#if user}}
+  <li class="nav-item">
+    <a class="nav-link " href="#" tabindex="-1" aria-disabled="true">
+      Hello, {{user.name}}
+    </a>
+    <a class="nav-link " href="/adminReg/signOut" tabindex="-1" aria-disabled="true">signOut</a>
+  </li>
+  {{/if}}
+  <div class="container">
+
+    <div class="portfolio-wrap">
+      <div class="portfolio-item">
+        <div class="portfolio-item-wrap">
+          <a href="">
+            <img src="https://hotwalls.ru/thumbnails/lg/temnyy_fon_v_melkuyu_tochku.jpg">
+            <div class="portfolio-item-inner">
+              <div class="portfolio-heading">
+                <h3>Часы Ручной Работы</h3>
+              </div>
+              <ul>
+                <li><a href="/watch">Заказ Часов</a></li>
+                <li><a href="/korusel">Часы в Наличии</a></li>
+              </ul>
+            </div>
           </a>
-          <a class="nav-link " href="/adminReg/signOut" tabindex="-1" aria-disabled="true">signOut</a>
-        </li>
-        {{/if}}
-<div class="container">
-
-<div class="portfolio-wrap">
-<div class="portfolio-item">
-<div class="portfolio-item-wrap">
-<a href="">
-<img src="https://hotwalls.ru/thumbnails/lg/temnyy_fon_v_melkuyu_tochku.jpg">
-<div class="portfolio-item-inner">
-<div class="portfolio-heading">
-<h3>Часы Ручной Работы</h3>
-</div>
-<ul>
-<li><a href="/watch">Заказ Часов</a></li>
-<li><a href="/korusel">Часы в Наличии</a></li>
-</ul>
-</div>
-</a>
-</div>
-</div>
-</div>
+        </div>
+      </div>
+    </div>
 
 
 
-{{#if user}}
-<a href="/orders">Заказы</a>
-{{/if}}
+    {{#if user}}
+    <a href="/orders">Заказы</a>
+    {{/if}}
 
 
+  </div>
