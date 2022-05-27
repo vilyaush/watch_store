@@ -6,7 +6,7 @@ router.get('/',(req,res)=>{
 
 router.post('/',async (req, res) => {
     const { name, email, phone, img } = req.body;
-    console.log('--------------------', req.body);
+    // console.log('--------------------', req.body);
     if (name && email && phone && img) {
       const watch = await User.create(req.body);
       return res.json(watch);
