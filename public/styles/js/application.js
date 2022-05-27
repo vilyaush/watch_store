@@ -13,6 +13,7 @@ zakaz.addEventListener('submit', async (event) => {
   });
   if (response.ok) {
     window.location = '/message';
+    response.body
   }
 })
 

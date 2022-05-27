@@ -3,11 +3,6 @@ const router = require('express').Router();
 const bcrypt = require('bcrypt');
 const { Admin } = require('../db/models');
 
-// router.get('/', (req, res) => {
-//   res.render('adminAdd');
-// });
-
-
 
 router.route('/')
   .get((req, res) => {
