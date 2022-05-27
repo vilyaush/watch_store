@@ -1,0 +1,12 @@
+
+{{#each orders}}
+<form action="/orders/{{this.id}}" method="post">
+<div>
+<h1>{{this.name}}</h1>
+<h1>{{this.email}}</h1>
+<h1>{{this.phone}}</h1>
+<img src="{{this.img}}" width="400px"></img>
+</div>
+<button type="submit" class="btn btn-danger">Delete</button>
+{{/each}}
+</form>

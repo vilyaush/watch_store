@@ -47,7 +47,9 @@ app.use(checkSession);
 // app.get('/',(req, res) => {
 //     req.session.destroy();
 //     res.clearCookie('sID').redirect('/');
-//   });app.use('/watch', watchRouter)
+//   });
+
+app.use('/watch', watchRouter)
 app.use('/adminAdd', adminAddRouter);
 app.use('/adminReg', adminRegRouter);
 app.use('/message', messageRouter);
@@ -59,8 +61,14 @@ app.get('/', (req, res) => {
 
 app.get('/orders', async (req, res) => {
  const orders = await User.findAll();
-  res.send(orders);
+//  res.send(orders);
+  res.render('orderdetail', {orders})
 })
+app.post('/orders/:id', async (req,res)=>{
+  const {id} = req.params
+  await User.destroy({where:{id}})
+  return res.redirect('/orders');
+} )
 
 app.listen(PORT, () => {
   console.log('server start on', PORT);
