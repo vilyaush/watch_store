@@ -3,7 +3,6 @@ const express = require("express");
 const hbs = require("hbs");
 const { User } = require('./db/models');
 
-// const indexRouter = require('./routers/indexRouter')  
 const session = require('express-session');
 const morgan = require('morgan');
 
@@ -44,6 +43,12 @@ app.use(session({
 }));
 
 app.use(checkSession);
+
+// app.get('/',(req, res) => {
+//     req.session.destroy();
+//     res.clearCookie('sID').redirect('/');
+//   });
+
 app.use('/watch', watchRouter)
 app.use('/adminAdd', adminAddRouter);
 app.use('/adminReg', adminRegRouter);
@@ -59,6 +64,11 @@ app.get('/orders', async (req, res) => {
 //  res.send(orders);
   res.render('orderdetail', {orders})
 })
+app.post('/orders/:id', async (req,res)=>{
+  const {id} = req.params
+  await User.destroy({where:{id}})
+  return res.redirect('/orders');
+} )
 
 app.listen(PORT, () => {
   console.log('server start on', PORT);
