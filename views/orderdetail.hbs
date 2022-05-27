@@ -1,4 +1,5 @@
 
+{{!-- 
 {{#each orders}}
 <form action="/orders/{{this.id}}" method="post">
 <div>
@@ -7,6 +8,48 @@
 <h1>{{this.phone}}</h1>
 <img src="{{this.img}}" width="400px"></img>
 </div>
-<button type="submit" class="btn btn-danger">Delete</button>
 {{/each}}
-</form>
+</form> --}}
+
+
+<div class="tab7">
+<table class="table">
+  <thead>
+    
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Image</th>
+    </tr>
+   
+  </thead>
+  <tbody>
+    {{#each orders}}
+    <form action="/orders/{{this.id}}" method="post">
+    <div> 
+
+   
+    <tr>
+      <th scope="row"></th>
+      <td><h2>{{this.name}}</h2></td>
+      <td><h2>{{this.email}}</h2></td>
+      <td><h2>{{this.phone}}</h2></td>
+      <td><img width="200" height="150" src="{{this.img}}"></img></td>
+ 
+    </tr>
+      <td><button type="submit" class="btn btn-danger">Delete</button></td>
+     </div>
+     {{/each}}
+     </form>
+
+    </div>
+    
+<div>
+
+<button  type="button" class="btn btn-warning"><a href="/">Main page</a></button>
+
+</div>
+
+ 

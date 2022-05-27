@@ -228,6 +228,16 @@ display: flex;
 }
 
 
+.tab7{
+  background-color: rgb(163, 160, 156);
+  padding: 50px;
+ 
+}
+.mainB {
+  margin: 100px 300px 100px 600px;
+}
+
+
 @media (min-width: 530px) {
   .portfolio-item {
      flex-basis: 50%;
